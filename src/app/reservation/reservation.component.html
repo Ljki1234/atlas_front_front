@@ -1,0 +1,48 @@
+<div class="reservation-container">
+  <!-- Progress Steps -->
+  <div class="progress-section">
+    <app-progress-steps [steps]="progressSteps"></app-progress-steps>
+  </div>
+  
+  <div class="reservation-layout">
+    <!-- Left Column: Form and Details -->
+    <div class="reservation-form-container">
+      <!-- Hotel Details Card -->
+      <div class="hotel-details-card">
+        <app-hotel-details 
+          [suiteName]="bookingDetails.roomName"
+          [suiteImage]="'assets/images/product-item' + (bookingDetails.roomName === 'Suite Toubkal' ? '8' : 
+            bookingDetails.roomName === 'Suite Oukaimden' ? '7' : 
+            bookingDetails.roomName === 'Suite Supérieure Tafza' ? '6' : 
+            bookingDetails.roomName === 'Suite Supérieure Ijoukak' ? '5' : 
+            bookingDetails.roomName === 'Suite Supérieure Asni' ? '4' : 
+            bookingDetails.roomName === 'Suite Supérieure Imlil' ? '3' : 
+            bookingDetails.roomName === 'Suite Supérieure Wirgan' ? '2' : '1') + '.jpg'"
+          [suitePrice]="bookingDetails.roomPrice"
+          [suiteCapacity]="bookingDetails.guestCount"
+          [suiteFeatures]="bookingDetails.roomFeatures">
+        </app-hotel-details>
+      </div>
+
+      <!-- Guest Form Card -->
+      <div class="form-card">
+        <app-guest-form 
+          [suitePrice]="bookingDetails.roomPrice"
+          [nightCount]="bookingDetails.nightCount"
+          [vatPercentage]="bookingDetails.vatPercentage"
+          (paymentSuccess)="processReservation()">
+        </app-guest-form>
+      </div>
+    </div>
+    
+    <!-- Right Column: Booking Summary -->
+    <div class="booking-summary-container">
+      <div class="summary-card">
+        <app-booking-summary [bookingDetails]="bookingDetails"></app-booking-summary>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-loading-dialog *ngIf="showLoadingDialog"></app-loading-dialog>
+<app-success-dialog *ngIf="showSuccessDialog"></app-success-dialog>

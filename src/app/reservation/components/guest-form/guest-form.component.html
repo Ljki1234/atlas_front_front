@@ -1,0 +1,282 @@
+<section class="section guest-details">
+  <h2 class="section-title">Vos informations</h2>
+  <div class="guest-form-card">
+    <h3 class="form-title"></h3>
+
+    <form [formGroup]="guestForm" (ngSubmit)="onSubmit()">
+      <!-- Personal Information -->
+      <div class="form-section">
+        <h4 class="section-title">Informations personnelles</h4>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="firstName">Prénom *</label>
+            <input
+              type="text"
+              id="firstName"
+              formControlName="firstName"
+              [class.is-invalid]="isFieldInvalid('firstName')"
+              placeholder="Entrez votre prénom">
+            <div class="error-message" *ngIf="isFieldInvalid('firstName')">
+              Le prénom est requis
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="lastName">Nom *</label>
+            <input
+              type="text"
+              id="lastName"
+              formControlName="lastName"
+              [class.is-invalid]="isFieldInvalid('lastName')"
+              placeholder="Entrez votre nom">
+            <div class="error-message" *ngIf="isFieldInvalid('lastName')">
+              Le nom est requis
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input
+              type="email"
+              id="email"
+              formControlName="email"
+              [class.is-invalid]="isFieldInvalid('email')"
+              placeholder="Entrez votre email">
+            <div class="error-message" *ngIf="isFieldInvalid('email')">
+              Veuillez entrer une adresse email valide
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Téléphone *</label>
+            <input
+              type="tel"
+              id="phone"
+              formControlName="phone"
+              [class.is-invalid]="isFieldInvalid('phone')"
+              placeholder="Entrez votre numéro de téléphone">
+            <div class="error-message" *ngIf="isFieldInvalid('phone')">
+              Le numéro de téléphone est requis
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Address Information -->
+      <div class="form-section">
+        <h4 class="section-title">Adresse</h4>
+        <div class="form-grid">
+          <div class="form-group full-width">
+            <label for="address">Adresse *</label>
+            <input
+              type="text"
+              id="address"
+              formControlName="address"
+              [class.is-invalid]="isFieldInvalid('address')"
+              placeholder="Entrez votre adresse">
+            <div class="error-message" *ngIf="isFieldInvalid('address')">
+              L'adresse est requise
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="city">Ville *</label>
+            <input
+              type="text"
+              id="city"
+              formControlName="city"
+              [class.is-invalid]="isFieldInvalid('city')"
+              placeholder="Entrez votre ville">
+            <div class="error-message" *ngIf="isFieldInvalid('city')">
+              La ville est requise
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="postalCode">Code postal *</label>
+            <input
+              type="text"
+              id="postalCode"
+              formControlName="postalCode"
+              [class.is-invalid]="isFieldInvalid('postalCode')"
+              placeholder="Entrez votre code postal">
+            <div class="error-message" *ngIf="isFieldInvalid('postalCode')">
+              Le code postal est requis
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="country">Pays *</label>
+            <select
+              id="country"
+              formControlName="country"
+              [class.is-invalid]="isFieldInvalid('country')">
+              <option value="">Sélectionnez un pays</option>
+              <option value="FR">France</option>
+              <option value="MA">Maroc</option>
+              <option value="BE">Belgique</option>
+              <option value="CH">Suisse</option>
+              <option value="CA">Canada</option>
+              <option value="ES">Espagne</option>
+              <option value="SU">Suède</option>
+              <option value="IT">italie</option>
+              <option value="RU">Royaume-Uni</option>
+            </select>
+            <div class="error-message" *ngIf="isFieldInvalid('country')">
+              Le pays est requis
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Additional Information -->
+      <div class="form-section">
+        <h4 class="section-title">Informations supplémentaires</h4>
+        <div class="form-grid">
+          <div class="form-group full-width">
+            <label class="section-subtitle">Pour qui réservez-vous ? (optionnel)</label>
+            <div class="radio-group">
+              <label class="radio-label">
+                <input type="radio" formControlName="bookingType" value="mainGuest">
+                <span>Je suis le client principal</span>
+              </label>
+              <label class="radio-label">
+                <input type="radio" formControlName="bookingType" value="otherGuest">
+                <span>Je réserve pour quelqu'un d'autre</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="arrivalTime">Heure d'arrivée prévue *</label>
+            <select
+              id="arrivalTime"
+              formControlName="arrivalTime"
+              [class.is-invalid]="isFieldInvalid('arrivalTime')">
+              <option value="">Sélectionnez l'heure d'arrivée</option>
+              <option value="06:00">14:00</option>
+              <option value="07:00">15:00</option>
+              <option value="08:00">16:00</option>
+              <option value="09:00">17:00</option>
+              <option value="10:00">14:00</option>
+              <option value="11:00">15:00</option>
+              <option value="12:00">16:00</option>
+              <option value="13:00">17:00</option>
+              <option value="14:00">14:00</option>
+              <option value="15:00">15:00</option>
+              <option value="16:00">16:00</option>
+              <option value="17:00">17:00</option>
+              <option value="18:00">18:00</option>
+              <option value="19:00">19:00</option>
+              <option value="20:00">20:00</option>
+            </select>
+            <div class="error-message" *ngIf="isFieldInvalid('arrivalTime')">
+              L'heure d'arrivée est requise
+            </div>
+          </div>
+
+          <div class="form-group full-width">
+            <label for="specialRequests">Demandes spéciales</label>
+            <textarea
+              id="specialRequests"
+              formControlName="specialRequests"
+              rows="3"
+              placeholder="Entrez vos demandes spéciales ou commentaires"></textarea>
+          </div>
+
+          <div class="form-group checkbox-group">
+            <label class="checkbox-label">
+              <input type="checkbox" formControlName="isBusinessTrip">
+              <span>Il s'agit d'un voyage d'affaires</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Terms and Conditions -->
+      <div class="form-section terms-section">
+        <div class="form-group checkbox-group">
+          <label class="checkbox-label" [class.is-invalid]="isFieldInvalid('acceptTerms')">
+            <input type="checkbox" formControlName="acceptTerms">
+            <span>J'accepte les conditions générales *</span>
+          </label>
+          <div class="error-message" *ngIf="isFieldInvalid('acceptTerms')">
+            Vous devez accepter les conditions générales pour continuer
+          </div>
+        </div>
+      </div>
+
+      <!-- Additional Services -->
+      <div class="form-section">
+        <h4 class="section-title">Services supplémentaires</h4>
+        <div class="services-grid">
+          <div class="service-item">
+            <div class="service-checkbox">
+              <input type="checkbox" id="breakfast" (change)="onServiceSelectionChange(additionalServices[0])">
+              <label for="breakfast">
+                <div class="service-name">Petit-déjeuner</div>
+                <div class="service-description">Petit-déjeuner buffet continental</div>
+                <div class="service-price">25€</div>
+              </label>
+            </div>
+          </div>
+
+          <div class="service-item">
+            <div class="service-checkbox">
+              <input type="checkbox" id="transfer" (change)="onServiceSelectionChange(additionalServices[1])">
+              <label for="transfer">
+                <div class="service-name">Transfert aéroport</div>
+                <div class="service-description">Service de transfert aller-retour depuis l'aéroport</div>
+                <div class="service-price">50€</div>
+              </label>
+            </div>
+          </div>
+
+          <div class="service-item">
+            <div class="service-checkbox">
+              <input type="checkbox" id="massage" (change)="onServiceSelectionChange(additionalServices[2])">
+              <label for="massage">
+                <div class="service-name">Massage</div>
+                <div class="service-description">Massage relaxant de 60 minutes</div>
+                <div class="service-price">80€</div>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Price Summary -->
+      <div class="price-summary">
+        <div class="price-row">
+          <span class="price-label">Prix de base:</span>
+          <span class="price-value">{{ basePrice | currency:'EUR' }}</span>
+        </div>
+
+        <!-- Selected Services -->
+        <div *ngIf="selectedServices.length > 0" class="selected-services">
+          <div class="price-row" *ngFor="let service of selectedServices">
+            <span class="price-label">{{ service.name }}:</span>
+            <span class="price-value">{{ service.price | currency:'EUR' }}</span>
+          </div>
+        </div>
+
+        <div class="price-row total">
+          <span class="price-label">Total:</span>
+          <span class="price-value">{{ totalPrice | currency:'EUR' }}</span>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="form-actions">
+        <button type="submit" class="submit-button" [disabled]="guestForm.invalid">
+          Continuer vers le paiement
+        </button>
+      </div>
+
+      <!-- PayPal Container -->
+      <div #paypalContainer class="paypal-container" [class.visible]="formValid" [class.hidden]="!formValid">
+        <div *ngIf="!paypalRendered" class="paypal-loading"></div>
+      </div>
+    </form>
+  </div>
+</section>

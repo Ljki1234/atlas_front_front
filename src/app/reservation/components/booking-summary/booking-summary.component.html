@@ -1,0 +1,63 @@
+<div class="booking-summary-card">
+  <h3 class="mb-4">Récapitulatif de votre réservation</h3>
+
+  <div class="booking-details">
+    <div class="detail-row">
+      <span class="label">Suite:</span>
+      <span class="value">{{ bookingDetails.roomName }}</span>
+    </div>
+
+    <div class="detail-row">
+      <span class="label">Arrivée:</span>
+      <span class="value">{{ bookingDetails.checkInDate }} ({{ bookingDetails.checkInDay }})</span>
+    </div>
+
+    <div class="detail-row">
+      <span class="label">Départ:</span>
+      <span class="value">{{ bookingDetails.checkOutDate }} ({{ bookingDetails.checkOutDay }})</span>
+    </div>
+
+    <div class="detail-row">
+      <span class="label">Nombre de nuits:</span>
+      <span class="value">{{ bookingDetails.nightCount }}</span>
+    </div>
+
+    <div class="detail-row">
+      <span class="label">Voyageurs:</span>
+      <span class="value">{{ bookingDetails.guestCount }}</span>
+    </div>
+
+    <div class="price-breakdown mt-4">
+      <div class="detail-row">
+        <span class="label">Prix de la suite:</span>
+        <span class="value">{{ bookingDetails.roomPrice | currency:'EUR' }}</span>
+      </div>
+
+      <div class="detail-row">
+        <span class="label">TVA ({{ bookingDetails.vatPercentage }}%):</span>
+        <span class="value">{{ bookingDetails.vatAmount | currency:'EUR' }}</span>
+      </div>
+
+      <div class="detail-row total-price mt-3">
+        <span class="label">Prix total:</span>
+        <span class="value">{{ bookingDetails.totalPrice | currency:'EUR' }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="payment-calendar mt-4">
+    <h4>Calendrier des paiements</h4>
+    <p class="payment-info">Aucun prépaiement aujourd'hui. Vous paierez pendant votre séjour.</p>
+  </div>
+
+  <div class="cancellation-policy mt-4">
+    <h4>Combien me coûtera l'annulation ?</h4>
+    <p class="cancellation-info">Annulation gratuite avant 4jours.</p>
+    <p class="cancellation-fee">avant 4jours.</p>
+  </div>
+
+  <div class="genius-info mt-4">
+    <p class="genius-text">Cette réservation compte !</p>
+    <p class="genius-description">Chaque réservation honorée (voiture de location, taxi,) contribue à votre progression Genius.</p>
+  </div>
+</div>

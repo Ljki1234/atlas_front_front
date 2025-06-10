@@ -1,0 +1,57 @@
+<h2 mat-dialog-title class="mb-3 text-center">Confirmation de votre réservation</h2>
+<div class="reservation-details mb-4" tyle="text-align: center; font-size: 16px;">
+  <p><strong>&nbsp;&nbsp;&nbsp;&nbsp;Suite :</strong> {{ suiteDescription }}</p>
+  <p><strong>&nbsp;&nbsp;&nbsp;&nbsp;Arrivée :</strong> {{ startDate | date: 'dd/MM/yyyy' }}</p>
+  <p><strong>&nbsp;&nbsp;&nbsp;&nbsp;Départ :</strong> {{ endDate | date: 'dd/MM/yyyy' }}</p>
+  <p><strong>&nbsp;&nbsp;&nbsp;&nbsp;Nombre de personnes :</strong> {{ numberOfGuests }}</p>
+  <p><strong>&nbsp;&nbsp;&nbsp;&nbsp;Prix total :</strong> {{ totalPrice | currency: 'EUR' }}</p>
+</div>
+<form #userForm="ngForm" (ngSubmit)="onSubmit()" novalidate class="user-form">
+  &nbsp;&nbsp;&nbsp;&nbsp;<mat-form-field appearance="outline" class="half-width mb-4">
+  <mat-label>Nom complet</mat-label>
+  <mat-icon matPrefix>person</mat-icon>
+  <input
+    matInput
+    name="fullName"
+    [(ngModel)]="user.fullName"
+    required
+    autocomplete="name"
+    placeholder="Entrez votre nom complet"
+  />
+  <mat-error *ngIf="userForm.submitted && !user.fullName">
+    ⚠ Nom requis
+  </mat-error>
+</mat-form-field>
+  &nbsp;&nbsp;&nbsp;&nbsp;<mat-form-field appearance="outline" class="half-width mb-4">
+  <mat-label>Email</mat-label>
+  <mat-icon matPrefix>email</mat-icon>
+  <input matInput type="email" name="email" [(ngModel)]="user.email" required email />
+  <mat-error *ngIf="userForm.submitted && (!user.email || userForm.controls['email']?.errors?.['email'])">
+    Email valide requis
+  </mat-error>
+</mat-form-field>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <mat-form-field appearance="outline" class="half-width mb-4">
+    <mat-label>Téléphone</mat-label>
+    <mat-icon matPrefix>phone</mat-icon>
+    <input
+      matInput
+      type="tel"
+      name="tel"
+      [(ngModel)]="user.tel"
+      required
+      pattern="[0-9]{10}"
+      maxlength="10"
+    />
+    <mat-error *ngIf="userForm.submitted && (!user.tel || userForm.controls['tel']?.errors?.['pattern'])">
+      Numéro à 10 chiffres requis
+    </mat-error>
+  </mat-form-field>
+  <div mat-dialog-actions align="end" class="mt-4">
+    <button mat-button type="button" (click)="onCancel()">Annuler</button>
+    <button mat-raised-button class="advanced-button" type="submit" [disabled]="userForm.invalid">
+      Réserver maintenant
+    </button>
+  </div>
+  <div *ngIf="formValid" #paypalContainer id="paypal-button-container" class="half-width mb-4 " (click)="openUserDialog()"></div>
+</form>

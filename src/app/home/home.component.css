@@ -1,0 +1,339 @@
+.booking-section {
+  max-width: 800px;
+  margin: auto;
+  padding: 2rem;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+.booking-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+/* Flèches noires, grosses, bien à gauche et droite */
+.custom-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background: black;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1050;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+  font-weight: 700;
+  font-size: 2rem;
+  color: white;
+  user-select: none;
+}
+
+.custom-control:hover {
+  opacity: 1;
+}
+
+/* Position gauche */
+.carousel-control-prev.custom-control {
+  left: 0;
+}
+
+/* Position droite */
+.carousel-control-next.custom-control {
+  right: 0;
+}
+
+/* Icones flèches (le < et >) */
+.custom-control-icon {
+  pointer-events: none;
+  line-height: 1;
+}
+
+/* Pour garder les images uniformes et avec un bel effet */
+.img-fluid.rounded.shadow {
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+}
+
+.img-fluid.rounded.shadow:hover {
+  transform: scale(1.05);
+}
+#testimonials ul {
+  list-style-type: disc;
+}
+ul li {
+  margin-bottom: 4px;
+}
+.image-holder-3d {
+  perspective: 1200px; /* Profondeur de la 3D */
+}
+
+.slider-3d {
+  height: 100%;
+  border: 4px solid #444; /* Cadre */
+  border-radius: 15px;
+  box-shadow:
+    10px 10px 30px rgba(0,0,0,0.3),
+    inset 0 0 15px rgba(255,255,255,0.2);
+
+  /* Transformation 3D */
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(3px);
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.text-black {
+  color: black !important;
+}
+
+/* Exemple d'animation au hover */
+.image-holder-3d:hover .slider-3d {
+  transform: rotateY(15deg) rotateX(10deg) scale(1.05);
+  box-shadow:
+    20px 20px 40px rgba(0,0,0,0.5),
+    inset 0 0 20px rgba(255,255,255,0.3);
+}
+
+.swiper-slide img.object-fit-cover {
+  object-fit: cover;
+  object-position: center;
+}
+h2.fw-bold {
+  color: #121212;
+  font-weight: 700;
+}
+.section-block {
+  padding: 10px 0;
+}
+#navbar .nav-link {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 400;
+}
+
+h5.fw-bold {
+  color: #212529;
+  border-bottom: 2px solid #000;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+}
+
+ul.list-unstyled li {
+  margin-bottom: 8px;
+}
+.form-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.booking-item {
+  flex: 0 0 calc(50% - 10px); /* 2 items per row with spacing */
+  min-width: 300px;
+}
+
+
+.booking-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.booking-item {
+  flex: 1 1 45%;
+  min-width: 200px;
+}
+
+.availability-message p {
+  margin-top: 1rem;
+  font-weight: 600;
+  color: #1976d2;
+}
+
+#testimonials h5 {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+.mt-3 col-12 text-center{
+  color: black;
+  font-weight: bold;
+}
+
+   /* Style pour le footer */
+ .footer-menu {
+   margin-bottom: 1.5rem;
+ }
+
+.widget-title {
+  color: #333;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.contact-form .form-label {
+  color: #333;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.contact-form .form-control {
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.contact-form .form-control:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+.captcha-container {
+  background: #f8f9fa;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  border: 1px solid #e9ecef;
+}
+
+.captcha-image canvas {
+  border: 1px solid #dee2e6;
+  transition: all 0.3s ease;
+}
+
+.captcha-image canvas:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.captcha-refresh {
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  border: 1px solid #dee2e6;
+  background: white;
+}
+
+.captcha-refresh:hover {
+  background: #f8f9fa;
+  transform: rotate(180deg);
+}
+
+.captcha-input {
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  padding: 8px 12px;
+  transition: all 0.3s ease;
+}
+
+.captcha-input:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.15);
+}
+
+.map-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.map-overlay:hover {
+  opacity: 1;
+}
+
+.map-overlay .btn {
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  font-size: 0.8rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.map-overlay .btn:hover {
+  background: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.form-check-label {
+  font-size: 0.8rem;
+}
+
+.form-check-label a {
+  color: #0d6efd;
+  text-decoration: none;
+}
+
+.form-check-label a:hover {
+  text-decoration: underline;
+}
+
+/* Style pour la section copyright */
+.copyright-section {
+  color: #333;
+  padding: 8px 15px;
+  border-radius: 20px;
+  background: linear-gradient(to right, #f8f9fa, #e9ecef);
+  border: 1px solid #dee2e6;
+  display: inline-flex;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+/* Style pour la section méthodes de paiement */
+.payment-methods {
+  padding: 8px 15px;
+  border-radius: 20px;
+  background: linear-gradient(to right, #f8f9fa, #e9ecef);
+  border: 1px solid #dee2e6;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  font-size: 0.9rem;
+}
+
+/* Style pour le lien de politique de confidentialité */
+.privacy-policy-link {
+  color: #333;
+  text-decoration: none;
+  padding: 8px 15px;
+  border-radius: 20px;
+  background: linear-gradient(to right, #f8f9fa, #e9ecef);
+  border: 1px solid #dee2e6;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+}
+

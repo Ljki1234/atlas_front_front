@@ -1,0 +1,129 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "atlass-front": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/atlass-front",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "@angular/material/prebuilt-themes/azure-blue.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/flatpickr/dist/flatpickr.min.css",
+              "node_modules/swiper/swiper-bundle.min.css",
+              "src/assets/css/style.css",
+              "src/assets/css/vendor.css",
+              "src/assets/css/date-time-picker-component.min.css",
+              "src/styles.scss"
+            ],
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+              "node_modules/swiper/swiper-bundle.min.js",
+              "node_modules/flatpickr/dist/flatpickr.min.js",
+              "node_modules/@iconify/iconify/dist/iconify.min.js",
+              "src/assets/js/jquery-1.11.0.min.js",
+              "src/assets/js/modernizr.js",
+              "src/assets/js/date-time-picker.min.js",
+              "src/assets/js/plugins.js",
+              "src/assets/js/script.js"
+            ],
+            "allowedCommonJsDependencies": [
+              "canvg",
+              "core-js/modules/es.string.ends-with.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "atlass-front:build:production"
+            },
+            "development": {
+              "buildTarget": "atlass-front:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "buildTarget": "atlass-front:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "@angular/material/prebuilt-themes/azure-blue.css",
+              "src/styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": false
+  }
+}

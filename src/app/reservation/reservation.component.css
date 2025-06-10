@@ -1,0 +1,313 @@
+:host {
+  display: block;
+  --color-primary: #003580;
+  --color-primary-light: #1a4b8c;
+  --color-primary-dark: #00224f;
+  
+  --color-secondary: #0071c2;
+  --color-secondary-light: #2a8cd6;
+  --color-secondary-dark: #005899;
+  
+  --color-accent: #f5a623;
+  --color-accent-light: #ffc54d;
+  --color-accent-dark: #e69100;
+  
+  --color-success: #00800a;
+  --color-warning: #ffa500;
+  --color-error: #e41c38;
+  
+  --color-white: #ffffff;
+  --color-gray-100: #f5f5f5;
+  --color-gray-200: #e8e8e8;
+  --color-gray-300: #d4d4d4;
+  --color-gray-400: #bdbdbd;
+  --color-gray-500: #9e9e9e;
+  --color-gray-600: #757575;
+  --color-gray-700: #616161;
+  --color-gray-800: #424242;
+  --color-gray-900: #212121;
+  --color-black: #000000;
+}
+
+.reservation-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+.progress-section {
+  margin-bottom: 2rem;
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.reservation-layout {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 2rem;
+  align-items: start;
+}
+
+.reservation-form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.hotel-details-card,
+.form-card,
+.services-card,
+.summary-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hotel-details-card:hover,
+.form-card:hover,
+.services-card:hover,
+.summary-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.hotel-details-card {
+  overflow: hidden;
+}
+
+.form-card {
+  padding: 2rem;
+}
+
+.services-card {
+  padding: 1.5rem;
+}
+
+.summary-card {
+  position: sticky;
+  top: 2rem;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.section {
+  background-color: var(--color-white);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.section-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  color: var(--color-primary);
+}
+
+.booking-summary-container {
+  position: sticky;
+  top: 2rem;
+}
+
+.booking-summary-card {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.booking-summary-card h3 {
+  color: #333;
+  font-size: 1.5rem;
+  font-weight: 600;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 1rem;
+}
+
+.booking-details {
+  color: #666;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+}
+
+.detail-row .label {
+  font-weight: 500;
+  color: #555;
+}
+
+.detail-row .value {
+  font-weight: 600;
+  color: #333;
+}
+
+.price-breakdown {
+  border-top: 1px solid #eee;
+  padding-top: 1rem;
+}
+
+.total-price {
+  font-size: 1.1rem;
+  color: #333;
+  font-weight: 700;
+}
+
+.total-price .value {
+  color: #2c5282;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .reservation-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .summary-card {
+    position: static;
+    margin-top: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .reservation-container {
+    padding: 1rem;
+  }
+
+  .form-card,
+  .services-card,
+  .summary-card {
+    padding: 1rem;
+  }
+}
+
+/* Animation for cards */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hotel-details-card,
+.form-card,
+.services-card,
+.summary-card {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.hotel-details-card { animation-delay: 0.1s; }
+.form-card { animation-delay: 0.2s; }
+.services-card { animation-delay: 0.3s; }
+.summary-card { animation-delay: 0.4s; }
+
+/* Progress Steps Styling */
+:host ::ng-deep .progress-steps {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  position: relative;
+}
+
+:host ::ng-deep .step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  flex: 1;
+  padding: 0 2rem;
+}
+
+:host ::ng-deep .step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-gray-300);
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+:host ::ng-deep .step.active::after {
+  background-color: var(--color-primary);
+}
+
+:host ::ng-deep .step-number {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--color-gray-200);
+  color: var(--color-gray-600);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  position: relative;
+  z-index: 2;
+}
+
+:host ::ng-deep .step.active .step-number {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+:host ::ng-deep .step-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-gray-600);
+  text-align: center;
+  white-space: nowrap;
+  position: absolute;
+  top: 100%;
+  margin-top: 0.5rem;
+}
+
+/* Position the labels */
+:host ::ng-deep .step-left .step-label {
+  left: 0;
+  text-align: left;
+}
+
+:host ::ng-deep .step-center .step-label {
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+:host ::ng-deep .step-right .step-label {
+  right: 0;
+  text-align: right;
+}
+
+:host ::ng-deep .step.active .step-label {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+:host ::ng-deep .step.completed .step-number {
+  background-color: var(--color-success);
+  color: white;
+}
+
+:host ::ng-deep .step.completed::after {
+  background-color: var(--color-success);
+}

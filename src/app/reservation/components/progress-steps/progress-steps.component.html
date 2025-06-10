@@ -1,0 +1,11 @@
+<div class="progress-container">
+  <div class="progress-steps">
+    <ng-container *ngFor="let step of steps; let i = index; let isLast = last">
+      <div class="progress-step" [ngClass]="{'completed': step.completed, 'active': step.active}">
+        <div class="step-number">{{ step.number }}</div>
+        <div class="step-label">{{ step.label }}</div>
+      </div>
+      <div class="progress-line" *ngIf="!isLast" [ngClass]="{'completed': step.completed}"></div>
+    </ng-container>
+  </div>
+</div>

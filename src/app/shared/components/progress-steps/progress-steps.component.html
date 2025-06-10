@@ -1,0 +1,12 @@
+<div class="progress-steps">
+  <div *ngFor="let step of steps; let i = index" 
+       class="step" 
+       [class.active]="currentStep === i"
+       [class.completed]="currentStep > i"
+       [class.step-left]="i === 0"
+       [class.step-center]="i === 1"
+       [class.step-right]="i === 2">
+    <div class="step-number">{{ i + 1 }}</div>
+    <div class="step-label">{{ step }}</div>
+  </div>
+</div> 

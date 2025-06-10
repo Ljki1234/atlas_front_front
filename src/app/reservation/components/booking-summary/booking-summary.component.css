@@ -1,0 +1,352 @@
+.booking-summary-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.booking-summary-card h3 {
+  color: #1a1a1a;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.booking-details {
+  color: #4a4a4a;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.detail-row:last-child {
+  border-bottom: none;
+}
+
+.detail-row .label {
+  font-weight: 500;
+  color: #666;
+}
+
+.detail-row .value {
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.price-breakdown {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 2px solid #f0f0f0;
+}
+
+.total-price {
+  font-size: 1.1rem;
+  color: #1a1a1a;
+  font-weight: 700;
+}
+
+.total-price .value {
+  color: #2c5282;
+}
+
+.booking-summary {
+  background-color: var(--color-white);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  position: sticky;
+  top: 24px;
+}
+
+.summary-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  color: var(--color-primary);
+}
+
+.summary-dates {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--color-gray-200);
+}
+
+.check-date {
+  display: flex;
+  flex-direction: column;
+}
+
+.date-label {
+  font-size: 12px;
+  color: var(--color-gray-600);
+  margin-bottom: 4px;
+}
+
+.date-value {
+  font-weight: 600;
+}
+
+.date-day, .date-time {
+  font-size: 12px;
+  color: var(--color-gray-600);
+}
+
+.night-count {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: var(--color-gray-600);
+  position: relative;
+}
+
+.night-count::before {
+  content: "";
+  width: 60px;
+  height: 1px;
+  background-color: var(--color-gray-400);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+.night-count span {
+  background-color: var(--color-white);
+  padding: 0 8px;
+  position: relative;
+  z-index: 1;
+}
+
+.summary-guests {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--color-gray-200);
+  display: flex;
+  justify-content: space-between;
+}
+
+.guests-label {
+  font-weight: 500;
+}
+
+.summary-room {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--color-gray-200);
+}
+
+.room-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.room-features {
+  list-style: none;
+  margin-left: 16px;
+}
+
+.room-features li {
+  position: relative;
+  padding-left: 16px;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.room-features li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--color-success);
+  font-weight: bold;
+}
+
+/* Price Breakdown */
+.breakdown-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.price-total {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--color-gray-300);
+  font-weight: 600;
+}
+
+.total-value {
+  font-size: 20px;
+  color: var(--color-secondary);
+}
+
+.price-info {
+  font-size: 12px;
+  color: var(--color-gray-600);
+  margin-top: 12px;
+}
+
+/* Summary Actions */
+.summary-actions {
+  padding: 16px 0;
+}
+
+.confirm-button {
+  width: 100%;
+  padding: 16px;
+  background-color: var(--color-secondary);
+  color: var(--color-white);
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background-color 150ms ease, transform 150ms ease;
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+
+.confirm-button:hover {
+  background-color: var(--color-secondary-dark);
+  transform: translateY(-2px);
+}
+
+.confirm-button:active {
+  transform: translateY(0);
+}
+
+.button-info {
+  font-size: 12px;
+  color: var(--color-gray-600);
+  text-align: center;
+}
+
+/* Cancellation Policy */
+.cancellation-policy {
+  background-color: var(--color-gray-100);
+  padding: 16px;
+  border-radius: 8px;
+  margin-top: 16px;
+}
+
+.policy-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.policy-text {
+  font-size: 12px;
+  color: var(--color-gray-700);
+  margin-bottom: 4px;
+}
+
+/* Payment Calendar Styles */
+.payment-calendar {
+  border-top: 1px solid #eee;
+  padding-top: 1rem;
+}
+
+.payment-calendar h4 {
+  color: #333;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.payment-info {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+/* Cancellation Policy Styles */
+.cancellation-policy {
+  border-top: 1px solid #eee;
+  padding-top: 1rem;
+}
+
+.cancellation-policy h4 {
+  color: #333;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.cancellation-info {
+  color: #2c5282;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.cancellation-date {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
+.cancellation-fee {
+  color: #e53e3e;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* Genius Info Styles */
+.genius-info {
+  border-top: 1px solid #eee;
+  padding-top: 1rem;
+  background-color: #f7fafc;
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+.genius-text {
+  color: #2c5282;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.genius-description {
+  color: #666;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.mt-4 {
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .summary-dates {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .check-date {
+    width: 100%;
+  }
+  
+  .night-count {
+    width: 100%;
+    margin: 8px 0;
+  }
+  
+  .night-count::before {
+    width: 100%;
+  }
+}

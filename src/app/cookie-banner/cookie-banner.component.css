@@ -1,0 +1,81 @@
+.cookie-banner {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background-color: #ffffff;
+  color: #333;
+  padding: 20px 24px;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  animation: slideUp 0.4s ease;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+.cookie-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cookie-content p {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.button-group {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.btn-accept,
+.btn-refuse {
+  padding: 8px 18px;
+  font-weight: 600;
+  font-size: 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-accept {
+  background-color: #00b894;
+  color: white;
+}
+
+.btn-accept:hover {
+  background-color: #019875;
+}
+
+.btn-refuse {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.btn-refuse:hover {
+  background-color: #ccc;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .cookie-content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
