@@ -148,7 +148,6 @@
             color: #000000;
           }
         </style>
-        <h4 class="mb-4" style="font-weight: bold;">POLITIQUE DE CONFIDENTIALITÉ</h4>
 
         <h4 class="mb-4" style="font-weight: bold;">INTRODUCTION</h4>
         <p>Dans le cadre de l'utilisation de ses services et notamment des services accessibles sur son site internet, son site mobile, sa boutique en ligne et ses applications mobiles, Atlas Front, en qualité de responsable de traitement, est susceptible de collecter et traiter des données à caractère personnel vous concernant.</p>
@@ -278,8 +277,20 @@
         <p>Conformément à la réglementation applicable en matière de protection des données personnelles, vous pouvez, à tout moment, exercer vos droits d'accès, de rectification, de suppression des données vous concernant ainsi que vos droits de limitation et d'opposition au traitement et à la portabilité de vos données personnelles.</p>
 
         <p>En outre, vous disposez légalement du droit de définir des directives relatives au sort de vos données à caractère personnel post mortem.</p>
+        <h4 class="mt-5 mb-4" style="font-weight: bold;">SÉCURITÉ INFORMATIQUE / SÉCURISATION DES TRANSACTIONS</h4>
+
+        <p>Veiller à la sécurité et à la confidentialité des données personnelles que vous nous confiez est une priorité pour Atlas Front. Nous mettons ainsi en œuvre toutes les mesures techniques et organisationnelles utiles, au regard de la nature, de la portée et du contexte des données personnelles que vous nous communiquez et des risques présentés par leur traitement, pour préserver la sécurité de vos données personnelles et, notamment, empêcher toute destruction, perte, altération, divulgation, intrusion ou accès non autorisé à ces données, de manière accidentelle ou illicite.</p>
+
+        <p>Nous vous proposons un système de paiement en ligne sécurisé grâce aux dernières technologies en vigueur.</p>
+        <p>La sécurité et la confidentialité des données personnelles reposent sur les bonnes pratiques de chacun. C’est la raison pour laquelle nous vous invitons à ne pas communiquer vos mots de passe à des tiers, à vous déconnecter systématiquement de votre profil et de votre compte social (notamment en cas de comptes liés) et à fermer la fenêtre de votre navigateur à l’issue de votre session de travail, particulièrement si vous accédez à internet depuis un poste informatique partagé avec d’autres personnes. Vous éviterez ainsi que d’autres utilisateurs accèdent à vos informations personnelles.</p>
+
+        <h4 class="mt-5 mb-4" style="font-weight: bold;">CONTACTEZ-NOUS</h4>
+
+        <p>Pour toute question complémentaire relative à cette politique ou à la manière dont Atlas Front.</p>
+        <p>traite vos données personnelles, nous vous invitons à nous contacter à l’adresse suivante : contact&#64;atlasfront.com</p>
 
         <h4 class="mt-5 mb-4" style="font-weight: bold;">MODIFICATIONS DE LA DECLARATION</h4>
+        <p>Atlas Front se réserve le droit d’adapter la politique de protection des données personnelles. Lorsque nous apportons des modifications substantielles à la présente Déclaration, nous publions sur la page d’accueil de notre site un lien vers la Déclaration.</p>
       </div>
       <div class="modal-footer bg-light">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
@@ -1187,47 +1198,77 @@
             <div class="mb-2">
               <input type="text"
                      class="form-control form-control-sm"
+                     [class.is-invalid]="nameInput.invalid && nameInput.touched"
                      id="name"
                      required
                      placeholder="Nom *"
                      [(ngModel)]="formData.name"
-                     name="name">
+                     name="name"
+                     #nameInput="ngModel">
+              <div *ngIf="nameInput.invalid && nameInput.touched" class="invalid-feedback">
+                Veuillez entrer votre nom.
+              </div>
             </div>
             <div class="mb-2">
               <input type="email"
                      class="form-control form-control-sm"
+                     [class.is-invalid]="emailInput.invalid && emailInput.touched"
                      id="email"
                      required
+                     pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
                      placeholder="E-mail *"
                      [(ngModel)]="formData.email"
-                     name="email">
+                     name="email"
+                     #emailInput="ngModel">
+              <div *ngIf="emailInput.invalid && emailInput.touched" class="invalid-feedback">
+                Veuillez entrer une adresse e-mail valide.
+              </div>
             </div>
+
             <div class="mb-2">
               <input type="tel"
                      class="form-control form-control-sm"
+                     [class.is-invalid]="phoneInput.invalid && phoneInput.touched"
                      id="phone"
                      required
                      placeholder="Téléphone *"
                      [(ngModel)]="formData.phone"
-                     name="phone">
+                     name="phone"
+                     pattern="^0[5-7][0-9]{8}$"
+                     #phoneInput="ngModel">
+              <div *ngIf="phoneInput.invalid && phoneInput.touched" class="invalid-feedback">
+                Veuillez entrer un numéro de téléphone valide.
+              </div>
             </div>
             <div class="mb-2">
               <input type="text"
                      class="form-control form-control-sm"
+                     [class.is-invalid]="subjectInput.invalid && subjectInput.touched"
                      id="subject"
                      required
                      placeholder="Sujet du message *"
                      [(ngModel)]="formData.subject"
-                     name="subject">
+                     name="subject"
+                     pattern="^[A-Za-zÀ-ÿ\s]{5,}$"
+                     #subjectInput="ngModel">
+              <div *ngIf="subjectInput.invalid && subjectInput.touched" class="invalid-feedback">
+                Le sujet doit contenir au moins 5 lettres et aucun chiffre.
+              </div>
             </div>
             <div class="mb-2">
-              <textarea class="form-control form-control-sm"
-                        id="message"
-                        rows="3"
-                        required
-                        placeholder="Message *"
-                        [(ngModel)]="formData.message"
-                        name="message"></textarea>
+  <textarea class="form-control form-control-sm"
+            [class.is-invalid]="messageInput.invalid && messageInput.touched"
+            id="message"
+            rows="3"
+            required
+            placeholder="Message *"
+            [(ngModel)]="formData.message"
+            name="message"
+            pattern="^.{10,}$"
+            #messageInput="ngModel"></textarea>
+              <div *ngIf="messageInput.invalid && messageInput.touched" class="invalid-feedback">
+                Le message doit contenir au moins 10 caractères.
+              </div>
             </div>
             <div class="mb-2">
               <div class="captcha-container">
@@ -1240,25 +1281,43 @@
                   </button>
                   <input type="text"
                          class="form-control form-control-sm captcha-input"
-                         placeholder="Recopier le contenu de cette image"
+                         [class.is-invalid]="captchaError"
+                         placeholder="Recopier l'image"
                          [(ngModel)]="captchaInput"
                          name="captchaInput"
+                         #captchaInputModel="ngModel"
                          required>
                 </div>
-                <div *ngIf="captchaError" class="text-danger mt-1 small">
+                <div *ngIf="captchaError" class="invalid-feedback d-block mt-1 small">
                   Le code captcha est incorrect
                 </div>
               </div>
             </div>
-            <div class="mb-3 form-check">
-              <input type="checkbox" class="form-check-input" id="terms" required style="border-color: #333;">
+            <div class="form-check">
+              <input type="checkbox"
+                     class="form-check-input"
+                     [class.is-invalid]="termsInput.invalid && termsInput.touched"
+                     id="terms"
+                     required
+                     [(ngModel)]="formData.termsAccepted"
+                     name="terms"
+                     #termsInput="ngModel"
+                     style="border-color: #333;">
+
               <label class="form-check-label" for="terms" style="color: #333; font-weight: 500;">
                 J'ai lu et j'accepte les
-                <a href="#" data-bs-toggle="modal" data-bs-target="#conditionsModal" style="color: #333; text-decoration: underline;">Conditions générales de l'établissement</a>
+                <a href="#" data-bs-toggle="modal" data-bs-target="#conditionsModal" style="color: #333; text-decoration: underline;">
+                  Conditions générales de l'établissement
+                </a>
                 et
-                <a href="#" data-bs-toggle="modal" data-bs-target="#privacyModal" style="color: #333; text-decoration: underline;">Politique de confidentialité</a>
+                <a href="#" data-bs-toggle="modal" data-bs-target="#privacyModal" style="color: #333; text-decoration: underline;">
+                  Politique de confidentialité
+                </a>
                 <span style="color: #dc3545;">*</span>
               </label>
+              <div *ngIf="termsInput.invalid && termsInput.touched" class="invalid-feedback" style="display: block;">
+                Vous devez accepter les conditions pour continuer.
+              </div>
             </div>
             <button type="submit"
                     class="btn btn-sm"

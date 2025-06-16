@@ -2,7 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild, AfterViewInit } from '@angula
 import { Suite } from '../module/module-suite/models/suite';
 import { SuiteService } from '../module/module-suite/suite.service';
 import { ReservationService } from '../module/module-reservation/module-reservation.service';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, NgForm} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -88,6 +88,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   private swiper: Swiper | undefined;
   private conditionsModal: any;
   @ViewChild('captchaCanvas') captchaCanvas!: ElementRef<HTMLCanvasElement>;
+  @ViewChild('contactForm') contactForm!: NgForm;
   private captchaText: string = '';
   captchaInput: string = '';
   captchaError: boolean = false;
@@ -96,7 +97,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
     email: '',
     phone: '',
     subject: '',
-    message: ''
+    message: '',
+    termsAccepted: false
   };
   isSubmitting = false;
   submitMessage = '';
@@ -415,10 +417,12 @@ export class HomeComponent implements OnInit, AfterViewInit {
       email: '',
       phone: '',
       subject: '',
-      message: ''
+      message: '',
+      termsAccepted: false
     };
     this.captchaInput = '';
     this.refreshCaptcha();
+    this.contactForm.resetForm();
   }
   validateCaptcha(): boolean {
     if (!this.captchaInput) {
@@ -443,7 +447,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.captchaError = false;
   }
 
-  // Fonctions pour la gestion des cookies
+
   checkCookieConsent() {
     this.showCookieBanner = true;
   }
@@ -455,4 +459,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
   refuseCookies() {
     this.showCookieBanner = false;
   }
+
+  protected readonly name = name;
 }
